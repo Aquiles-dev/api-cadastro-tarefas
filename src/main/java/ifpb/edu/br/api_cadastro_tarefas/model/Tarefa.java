@@ -1,7 +1,7 @@
 package ifpb.edu.br.api_cadastro_tarefas.model;
 
 public class Tarefa {
-    private long id;
+    private Long id;
     private String titulo;
     private String descricao;
     private boolean concluida;
@@ -10,7 +10,7 @@ public class Tarefa {
 public Tarefa(){
 
 }
-public Tarefa(long id, String titulo, String descricao, boolean concluida){
+public Tarefa(Long id, String titulo, String descricao, boolean concluida){
     this.id = id;
     this.titulo = titulo;
     this.descricao = descricao;
