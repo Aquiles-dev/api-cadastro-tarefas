@@ -91,6 +91,35 @@ async function listarTarefas(){
     })
 }
 
+async function atualizarTarefa(id){
+    const tarefa = tarefasAtuais.find( t => t.id == id);
+    if (!tarefa) return;
+
+    const novoTitulo = prompt("Novo título: ", tarefa.titulo);
+    if (novoTitulo == null) return;
+
+    const novaDescricao = prompt("Nova descrição: ", tarefa.descricao);
+    if (novaDescricao == null) return;
+
+    const tarefaAtualizada = {
+        titulo: novoTitulo,
+        descricao: novaDescricao,
+        concluida: tarefa.concluida
+    };
+
+    const resposta = await fetch(`${API_URL}/${id}`,{
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(tarefaAtualizada)
+    });
+
+    console.log("Resposta: ", resposta);
+
+    listarTarefas();
+};
+
 async function apagarTarefa(id){
     await fetch(`${API_URL}/${id}`, {
         method: "DELETE"
