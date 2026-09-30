@@ -5,3 +5,20 @@ body{
 header{
     font-size: 25px;
 }
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid black;
+    margin-right: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    vertical-align: middle;
+    position: relative;
+}
+
+input[type="checkbox"]:checked {
+    background: limegreen;
+    border-color: black;
+}
